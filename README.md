@@ -1,4 +1,4 @@
-# Physical Solution Space calculation
+# Physical feasibility of adaptation strategies
 This code and its associated data calculate whether adaptation measures are physically feaisble to implement based on the physical characteristics of 30 deltas
 
 ## Dependencies 
