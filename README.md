@@ -1,5 +1,5 @@
 # Physical Solution Space (PSS) Model
-The Physical Solution Space (PSS) model calculates which adaptation measures are physically feaisble for implemententation in deltas, based on the unique physical characteristics of the deltas. This code runs for a global dataset of 769 deltas, but a sample dataset containing 30 deltas is provided here.
+The Physical Solution Space (PSS) model calculates which adaptation measures are physically feasible for implementation in deltas, based on the unique physical characteristics of the deltas. This code runs for a global dataset of 769 deltas, but a sample dataset containing 30 deltas is provided here.
 
 ## Dependencies 
 - Python v3.12.4
