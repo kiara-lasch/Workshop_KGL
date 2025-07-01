@@ -8,6 +8,25 @@ This code and its associated data calculate whether adaptation measures are phys
 - pandas
 
 ### Running the code
-1. clone git repository 
-2. cd into the src folder 
-3. python delta_analysis.py 
+  1. **Clone** this git repository
+     Open the command prompt, and navigate to your desired folder (the directory where you want the repository to be places). Run the following commant to clone the repository
+     ```shell
+     cd my\ideal\directory
+     ```
+     ```shell
+     git clone <link>
+     ```
+     
+  2. **Prepare** to run the script 
+     In the command prompt, navigate to the "src" folder (the folder where the source script is located)
+
+     ```shell
+     cd src
+     ```
+     
+  4. **Run** the script
+     In the command prompt, run the following line of code to execute the script
+
+     ```shell
+     python delta_analysis.py
+     ```
