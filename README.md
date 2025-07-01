@@ -10,4 +10,4 @@ This code and its associated data calculate whether adaptation measures are phys
 ### Running the code
 1. clone git repository 
 2. cd into the src folder 
-3. python delta_analysis.py 
+3. python delta_analysis.py

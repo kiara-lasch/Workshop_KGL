@@ -1,23 +1,22 @@
-# %%
+#%%
+# Import packages 
 from pathlib import Path
 import pandas as pd
 import warnings
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
 # Import combined_data for each climate scenario (ssp126, ssp245, ssp585)
-Combined_data_ssp126 = pd.read_csv(Path("data/raw/deltas_30_ssp126_decr.csv"))
-Combined_data_ssp245 = pd.read_csv(Path("data/raw/deltas_30_ssp245_decr.csv"))
-Combined_data_ssp585 = pd.read_csv(Path("data/raw/deltas_30_ssp585_decr.csv"))
-
+Combined_data_ssp126 = pd.read_csv(Path("../data/raw/deltas_30_ssp126_decr.csv"))
+Combined_data_ssp245 = pd.read_csv(Path("../data/raw/deltas_30_ssp245_decr.csv"))
+Combined_data_ssp585 = pd.read_csv(Path("../data/raw/deltas_30_ssp585_decr.csv"))
 
 # %%
+# Specify constants for the calculations
 riv_levee = 5
 prop_width = 6
 distance = 10000
 
 # ADVANCE ---------------------------------------------------------------------------------------------
-
-
 def advance(slope, distance, coastline, SLR, VLM, riv_dis, sed_dis):
     # Volume for new coastline (m3)
     offshore_depth_incl_SLR = (slope * distance) + SLR
@@ -27,7 +26,7 @@ def advance(slope, distance, coastline, SLR, VLM, riv_dis, sed_dis):
     RSLR = SLR - VLM
     sand_req_adv = V + (distance * RSLR * coastline)
 
-    # Pump capacity (took away pump_eff)
+    # Pump capacity 
     pump_cap_adv = riv_dis
 
     # Number of years to fill new coastline
@@ -41,15 +40,15 @@ def advance(slope, distance, coastline, SLR, VLM, riv_dis, sed_dis):
 # PROTECT-CLOSED --------------------------------------------------------------------------------------
 def protect_closed(ss, swh, SLR, prop_width, coastline, VLM, riv_dis):
     # Material requirements for levees along coast
-    h = 3 * (ss + swh)  # Dike height
-    b1 = h  # Base1
-    b2 = h * prop_width  # 1:6 ratio
-    V_trap = 0.5 * (b1 + b2) * h * coastline  # Volume (trapezium only)
-    RSLR = SLR - VLM  # relative sea level rise equation (SLR - VLM)
-    levee_req_pc = V_trap + (RSLR * b2 * coastline)  # Volume (incl. subsidence)`
+    h = 3 * (ss + swh)                              # Dike height
+    b1 = h                                          # Base1
+    b2 = h * prop_width                             # 1:6 ratio
+    V_trap = 0.5 * (b1 + b2) * h * coastline        # Volume (trapezium only)
+    RSLR = SLR - VLM                                # Relative sea level rise equation (SLR - VLM)
+    levee_req_pc = V_trap + (RSLR * b2 * coastline) # Volume (incl. subsidence)`
 
-    # Pump capacity (took away pump_eff)
-    pump_cap_pc = riv_dis  # divide by 1600kg/m3 to convert from kg/s to m3/s
+    # Pump capacity 
+    pump_cap_pc = riv_dis                           # divide by 1600kg/m3 to convert from kg/s to m3/s
 
     return levee_req_pc, pump_cap_pc
 
@@ -92,8 +91,6 @@ volume_to_fill_columns = [
 # total_inundation_volume = the volume to be filled if the whole flooded area is filled
 # urban_inundated_volume = volume to fill if we only fill the urban_flooded volume
 
-
-# def accommodate(proportion_safe, sed_dis, volume_to_fill):
 def accommodate(acc_raise_0p5, acc_raise_1, acc_raise_10, sed_dis, volume_to_fill):
     # Urban flooded area raising through stilts
     acc_raise_0p5 = acc_raise_0p5
