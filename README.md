@@ -1,8 +1,8 @@
-# Physical feasibility of adaptation strategies
-This code and its associated data calculate whether adaptation measures are physically feaisble to implement based on the physical characteristics of 30 deltas
+# Physical Solution Space (PSS) Model
+The Physical SOlution SPace (PSS) model calculates which adaptation measures are physically feaisble for implemententation in deltas, based on the unique physical characteristics of the deltas. This code runs for a global dataset of 769 deltas, but a sample dataset containing 30 deltas is provided here.
 
 ## Dependencies 
-- Python v3.13
+- Python v3.12.4
 
 ### Packages 
 - pandas
