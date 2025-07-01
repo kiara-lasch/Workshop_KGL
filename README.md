@@ -14,7 +14,7 @@ The Physical SOlution SPace (PSS) model calculates which adaptation measures are
      cd my\ideal\directory
      ```
      ```shell
-     git clone https://link-to-github-repo
+     git clone git@github.com:kiara-lasch/Workshop_KGL.git
      ```
      
   2. **Prepare** to run the script 
