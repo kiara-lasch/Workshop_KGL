@@ -10,3 +10,7 @@ My code repo
 - numpy
 - scipy
 - pandas
+
+## Usage 
+'''__main()
+'''
