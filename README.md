@@ -7,4 +7,7 @@ This code and its associated data calculate whether adaptation measures are phys
 ### Packages 
 - pandas
 
-
+### Running the code
+1. clone git repository 
+2. cd into the src folder 
+3. python delta_analysis.py 
