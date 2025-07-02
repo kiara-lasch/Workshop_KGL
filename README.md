@@ -22,9 +22,9 @@ Run the following command to clone the repository
 
   2. **Activate** environment 
 
-     Activate the environment associated with this script 
+     Create, activate and name the environment associated with this script 
      ``` shell
-     conda activate environment.yml
+     conda env create -f environment.yml -n workshop2
      ```
 
   
