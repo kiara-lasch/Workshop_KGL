@@ -11,6 +11,7 @@ The Physical Solution Space (PSS) model calculates which adaptation measures are
 
 ### Packages 
 - pandas
+- pathlib
 
 ### Running the code
 
