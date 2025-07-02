@@ -20,9 +20,9 @@ Run the following command to clone the repository
      git clone git@github.com:kiara-lasch/Workshop_KGL.git
      ```
 
-  2. **Create** and **Activate** environment 
+  2. **Create** and **activate** the environment 
 
-     Create, activate and name the environment associated with this script 
+     Create, activate and re-name the environment associated with this script 
      ``` shell
      conda env create -f environment.yml -n workshop2
      ```
