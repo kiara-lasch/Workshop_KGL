@@ -24,10 +24,10 @@ Run the following command to clone the repository
 
      Create, activate and re-name the environment associated with this script 
      ``` shell
-     conda env create -f environment.yml -n workshop2
+     conda env create -f environment.yml -n workshop_env
      ```
      ``` shell
-     conda activate workshop2
+     conda activate workshop_env
      ```
 
   
