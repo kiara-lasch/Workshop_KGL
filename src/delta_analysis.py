@@ -56,8 +56,6 @@ def advance(slope, distance, coastline, SLR, VLM, riv_dis, sed_dis):
 
     return offshore_depth_incl_SLR, sand_req_adv, pump_cap_adv, number_years_adv
 
-
-#%%
 # PROTECT-CLOSED --------------------------------------------------------------------------------------
 def protect_closed(ss, swh, SLR, prop_width, coastline, VLM, riv_dis):
     # Material requirements for levees along coast
@@ -350,7 +348,6 @@ threshold_analysis_ssp585 = Equation_results_ssp585[columns_to_extract].drop_dup
 )
 
 # Create only 1 advance column by checking if the pump threshold AND the artificial depth OR the number of years for river sediment is met
-# List of datasets
 datasets = {
     "threshold_analysis_ssp126": threshold_analysis_ssp126,
     "threshold_analysis_ssp245": threshold_analysis_ssp245,
@@ -377,14 +374,7 @@ for name, df in datasets.items():
         | (df["adv_12000"] & df["adv_offshore_depth_60"])
     ).astype(int)
 
-# %%
-print(threshold_analysis_ssp126.head())
-print(threshold_analysis_ssp245.head())
-print(threshold_analysis_ssp585.head())
-
-# count how many deltas are in each category with print statement
-print(
-    "SSP126 - Advance Known Max:", threshold_analysis_ssp126["adv_CurrentKnown"].sum()
-)
-print("SSP126 - Advance Simple:", threshold_analysis_ssp126["adv_Simple"].sum())
-print("SSP126 - Advance Innovative:", threshold_analysis_ssp126["adv_Innovative"].sum())
+# Export datasets to data/processed folder 
+threshold_analysis_ssp126.to_csv(Path("../data/processed/threshold_analysis_ssp126.csv"), index=False)
+threshold_analysis_ssp245.to_csv(Path("../data/processed/threshold_analysis_ssp245.csv"), index=False)
+threshold_analysis_ssp585.to_csv(Path("../data/processed/threshold_analysis_ssp585.csv"), index=False)
