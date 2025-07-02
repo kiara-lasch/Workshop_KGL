@@ -20,7 +20,7 @@ Run the following command to clone the repository
      git clone git@github.com:kiara-lasch/Workshop_KGL.git
      ```
 
-  2. **Activate** environment 
+  2. **Create** and **Activate** environment 
 
      Create, activate and name the environment associated with this script 
      ``` shell
