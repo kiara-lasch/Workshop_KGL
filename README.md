@@ -52,4 +52,10 @@ Run the following command to clone the repository
      ```shell
      python delta_analysis.py
      ```
+     
+  5. **Check** the output datasets
+
+     Go to the "data/processed" folder to find the generated csv datasets (per climate scenario) from the model.
+
+     Within these csv files, the 1 represented physical feaisbility of the adaptation measure, whereas a 0 indicates unfeasible.
 
