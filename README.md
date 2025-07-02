@@ -19,7 +19,15 @@ Run the following command to clone the repository
      ```shell
      git clone git@github.com:kiara-lasch/Workshop_KGL.git
      ```
-     
+
+  2. **Activate** environment 
+
+     Create and activate the environment associated with this script 
+     ``` shell
+     activate env
+     ```
+
+  
   3. **Prepare** to run the script 
 
      In the command prompt, navigate to the "src" folder (the folder where the source script is located)
@@ -28,7 +36,7 @@ Run the following command to clone the repository
      cd src
      ```
      
-  5. **Run** the script
+  4. **Run** the script
 
      In the command prompt, run the following line of code to execute the script
 
