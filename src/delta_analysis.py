@@ -1,5 +1,4 @@
 #%%
-# Import packages 
 from pathlib import Path
 import pandas as pd
 import warnings
@@ -11,32 +10,54 @@ Combined_data_ssp245 = pd.read_csv(Path("../data/raw/deltas_30_ssp245_decr.csv")
 Combined_data_ssp585 = pd.read_csv(Path("../data/raw/deltas_30_ssp585_decr.csv"))
 
 # %%
-# Specify constants for the calculations
+# Specify constant variables
 riv_levee = 5
 prop_width = 6
 distance = 10000
 
 # ADVANCE ---------------------------------------------------------------------------------------------
 def advance(slope, distance, coastline, SLR, VLM, riv_dis, sed_dis):
-    # Volume for new coastline (m3)
-    offshore_depth_incl_SLR = (slope * distance) + SLR
+    """
+    This function calculates the volume required to extend the coastline seaward, the pump capacity, 
+    and the number of years required to fill the new coastline with sediment.
+    
+    Parameters: 
+    slope (float): the offshore slope from the coastline (degrees)
+    distance (float): the distance that the coastline is extended offshore (m) 
+    coastline (float): the length of the coastline (m)
+    SLR (float): the expected sea level rise of the delta under the given scenario (m)
+    VLM (float): the vertical land motion of the delta (m)
+    riv_dis (float): the mean annual river discharge of the delta (m3/s)
+    sed_dis (float): the mean annual sediment discharge of the delta (kg/s)
 
+    Returns:
+    offshore_depth_incl_SLR (float): the offshore depth of the delta, consdering sea level rise (m)
+    sand_req_adv (float): the volume of sand required to extend the new coastline seaward (m3)
+    pump_cap_adv (float): the pump capacity required to pump river discharge from the rivers to the sea (m3/s)
+    number_years_adv (float): the number of years required to fill the new coastline with river sediment (years)
+    """
+
+    # offshore depth, including sea level rise (m)
+    offshore_depth_incl_SLR = (slope * distance) + SLR
+    
+    # sand required to extent the new coastline (m3)
     depth = slope * distance
     V = 0.5 * depth * distance * coastline
     RSLR = SLR - VLM
     sand_req_adv = V + (distance * RSLR * coastline)
 
-    # Pump capacity 
+    # pump capacity (m3/s)
     pump_cap_adv = riv_dis
 
-    # Number of years to fill new coastline
-    Sed_dis = sed_dis / 1600  # divide by 1600kg/m3 to convert from kg/s to m3/s
-    time_seconds = sand_req_adv / Sed_dis
+    # number of years to fill new coastline (yrs)
+    Sed_dis_m3s = sed_dis / 1600 
+    time_seconds = sand_req_adv / Sed_dis_m3s
     number_years_adv = time_seconds / (365 * 24 * 60 * 60)
 
     return offshore_depth_incl_SLR, sand_req_adv, pump_cap_adv, number_years_adv
 
 
+#%%
 # PROTECT-CLOSED --------------------------------------------------------------------------------------
 def protect_closed(ss, swh, SLR, prop_width, coastline, VLM, riv_dis):
     # Material requirements for levees along coast
@@ -367,5 +388,3 @@ print(
 )
 print("SSP126 - Advance Simple:", threshold_analysis_ssp126["adv_Simple"].sum())
 print("SSP126 - Advance Innovative:", threshold_analysis_ssp126["adv_Innovative"].sum())
-
-# %%

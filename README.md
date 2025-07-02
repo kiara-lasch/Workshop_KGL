@@ -11,9 +11,10 @@ The Physical Solution Space (PSS) model calculates which adaptation measures are
 
   1. **Clone** this git repository to your computer
 
-     Open the command prompt, and navigate to your desired folder (the directory where you want the repository to be places). Run the following commant to clone the repository
+     Open the command prompt, and navigate to your desired folder (the directory where you want the repository to be places). 
+Run the following command to clone the repository
      ```shell
-     cd my\ideal\directory
+     cd my\desired\directory
      ```
      ```shell
      git clone git@github.com:kiara-lasch/Workshop_KGL.git
