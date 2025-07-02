@@ -22,9 +22,9 @@ Run the following command to clone the repository
 
   2. **Activate** environment 
 
-     Create and activate the environment associated with this script 
+     Activate the environment associated with this script 
      ``` shell
-     activate env
+     conda activate environment.yml
      ```
 
   
