@@ -26,6 +26,9 @@ Run the following command to clone the repository
      ``` shell
      conda env create -f environment.yml -n workshop2
      ```
+     ``` shell
+     conda activate workshop2
+     ```
 
   
   3. **Prepare** to run the script 
